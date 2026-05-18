@@ -1,0 +1,12 @@
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "use": "sig",
+      "alg": "RS256",
+      "kid": "test-key-1",
+      "n": "pzxnaqHr0kjYR5W3aYq_2QduN5oymUoH3YH6U4dk9W6lra2XmQaTidQs1xHVn79WZOs4CNgU_RvScalyEPaMt0SHta3rwMSdTk2ShfNA831jDwDFpjQGcyAWM3d4IowHFDC6cXkttNKNXGqoDQMq_qXfoHjYAkAVv2O9jyg7mJo8pZeeOxzj8vAtQlUFcDM2x3cHuGJl48DASC1cG2WI606ppz319c7gmwVKnay7vOQScek4ErJ3EMh9AypFHSju3fRVhjobFALO7xwta09CWTk25DHAd3mcYvLviGikOAPnI0bxEPZYS42IXmLG7GyNMa7sYhcvYNsK7m3YtWGbpQ",
+      "e": "AQAB"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+[package]
+name = "bunny-license"
+version = "0.1.0"
+edition = "2021"
+description = "License validation SDK for Bunny subscriptions"
+
+[dependencies]
+jsonwebtoken = "9"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+
+[dev-dependencies]
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+wiremock = "0.6"
+serial_test = "3"
