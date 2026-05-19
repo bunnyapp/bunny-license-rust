@@ -1,4 +1,4 @@
-# bunny-license-rust
+# bunnyapp-license-rust
 
 License validation SDK for Bunny subscriptions.
 
@@ -19,11 +19,11 @@ A single call to `validate_license()` automatically selects the correct mode bas
 
 ## Environment variables
 
-| Variable | Required | Description |
-|---|---|---|
-| `BUNNY_HOST` | Online mode only | Base URL of the Bunny API, e.g. `https://api.bunny.net` |
-| `BUNNY_LICENSE_KEY` | Online mode | License key sent to the API for validation |
-| `BUNNY_OFFLINE_LICENSE_KEY` | Offline mode | Pre-issued JWT used in air-gapped environments |
+| Variable                    | Required         | Description                                              |
+| --------------------------- | ---------------- | -------------------------------------------------------- |
+| `BUNNY_HOST`                | Online mode only | Base URL of the Bunny API, e.g. `https://auth.bunny.com` |
+| `BUNNY_LICENSE_KEY`         | Online mode      | License key sent to the API for validation               |
+| `BUNNY_OFFLINE_LICENSE_KEY` | Offline mode     | Pre-issued JWT used in air-gapped environments           |
 
 `BUNNY_LICENSE_KEY` takes precedence. If neither is set, `validate_license()` returns `LicenseError::NoLicenseKeySet`.
 
@@ -81,8 +81,27 @@ The test suite covers both modes end-to-end without requiring a live Bunny API. 
 When Bunny rotates its signing keys, update the bundled JWKS and cut a new SDK release:
 
 ```sh
-curl https://api.bunny.net/api/.well-known/jwks.json \
+curl https://auth.bunny.com/api/.well-known/jwks.json \
   > src/keys/offline_jwks.json
 ```
 
-Then rebuild and publish.
+Then rebuild and publish (see [Publishing](#publishing) below).
+
+## Publishing
+
+Bump the version in [Cargo.toml](Cargo.toml), then:
+
+```sh
+cargo test                     # all tests must pass
+cargo publish --dry-run        # verify packaging
+cargo publish                  # push to crates.io
+```
+
+Tag the release after publishing:
+
+```sh
+git tag v$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[0].version')
+git push origin --tags
+```
+
+The crate is published as [`bunnyapp-license`](https://crates.io/crates/bunnyapp-license).
