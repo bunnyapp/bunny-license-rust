@@ -5,7 +5,7 @@ License validation SDK for Bunny subscriptions.
 ## Usage
 
 ```rust
-use bunny_license::{validate_license, LicenseClaims, LicenseError};
+use bunnyapp_license::{validate_license, LicenseClaims, LicenseError};
 
 #[tokio::main]
 async fn main() -> Result<(), LicenseError> {
