@@ -4,8 +4,10 @@ version = "0.1.0"
 edition = "2021"
 description = "License validation SDK for Bunny subscriptions"
 license = "MIT"
-repository = "https://github.com/bunnyapp/bunnyapp-license-rust"
+repository = "https://github.com/bunnyapp/bunny-license-rust"
+homepage = "https://github.com/bunnyapp/bunny-license-rust"
 documentation = "https://docs.rs/bunnyapp-license"
+readme = "README.md"
 keywords = ["license", "licensing", "jwt", "sdk"]
 categories = ["authentication", "api-bindings"]
 
